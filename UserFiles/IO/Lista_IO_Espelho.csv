@@ -1,34 +1,95 @@
-Ativo;Tipo;Endereço TIA;Tag TIA;Descrição;Elemento;Tipo elemento;Módulo;Borne esquema;Página esquema;Observações
-Sim;DI;;I_STOP7;STOP7;STOP7;Botão de emergência (NF);CPU 1214C;DIa:0;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_START;START;START;Botão de pressão (NA);CPU 1214C;DIa:1;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_AVANCA;AVANÇA;AVANÇA;Botão de pressão (NA);CPU 1214C;DIa:2;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_RECUA;RECUA;RECUA;Botão de pressão (NA);CPU 1214C;DIa:3;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR1;FR1;FR1;Relé térmico NF;CPU 1214C;DIa:4;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR2;FR2;FR2;Relé térmico NF;CPU 1214C;DIa:5;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR3;FR3;FR3;Relé térmico NF;CPU 1214C;DIa:6;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR4;FR4;FR4;Relé térmico NF;CPU 1214C;DIa:7;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR5;FR5;FR5;Relé térmico NF;CPU 1214C;DIb:0;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_FR6;FR6;FR6;Relé térmico NF;CPU 1214C;DIb:1;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_AUTO_1_MANUAL_2_DIB_2;Auto (1) Manual (2);Auto (1) Manual (2);Chave seletora com chave 3 posições;CPU 1214C;DIb:2;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_AUTO_1_MANUAL_2_DIB_3;Auto (1) Manual (2);Auto (1) Manual (2);Chave seletora com chave 3 posições;CPU 1214C;DIb:3;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DI;;I_STOP_COMP;STOP COMP;STOP COMP;Botão de emergência (NF);CPU 1214C;DIb:4;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM1;KM1;KM1;Bobina;CPU 1214C;DQa:0;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM2;KM2;KM2;Bobina;CPU 1214C;DQa:1;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM3;KM3;KM3;Bobina;CPU 1214C;DQa:2;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM4;KM4;KM4;Bobina;CPU 1214C;DQa:3;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM5;KM5;KM5;Bobina;CPU 1214C;DQa:4;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_KM6;KM6;KM6;Bobina;CPU 1214C;DQa:5;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_Y1;Y1;Y1;Bobina;CPU 1214C;DQa:6;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_Y2;Y2;Y2;Bobina;CPU 1214C;DQa:7;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H1;H1;H1;Lâmpada;CPU 1214C;DQb:0;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H2;H2;H2;Lâmpada;CPU 1214C;DQb:1;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H3;H3;H3;Lâmpada;SM1222 8DO rele;DQa:3;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H4;H4;H4;Lâmpada;SM1222 8DO rele;DQa:4;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H5;H5;H5;Lâmpada;SM1222 8DO rele;DQa:5;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H6;H6;H6;Lâmpada;SM1222 8DO rele;DQa:6;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H7;H7;H7;Lâmpada;SM1222 8DO rele;DQa:7;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H8;H8;H8;Lâmpada;SM1222 8DO rele;DQa:3;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H9;H9;H9;Lâmpada;SM1222 8DO rele;DQa:4;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H10;H10;H10;Lâmpada;SM1222 8DO rele;DQa:5;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H11;H11;H11;Lâmpada;SM1222 8DO rele;DQa:6;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
-Sim;DO;;Q_H12;H12;H12;Lâmpada;SM1222 8DO rele;DQa:7;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Path;Name;Data Type;Logical Address;Comment
+Entradas_CPU_Local;STOP7;Bool;%I0.0;Paragem Local / Botao Cogumelo de Paragem Geral (Contacto NF)
+Entradas_CPU_Local;START;Bool;%I0.1;Botao de Arranque do Sistema (Contacto NA)
+Entradas_CPU_Local;AVANCA;Bool;%I0.2;Botao Manual de Avanco do Cilindro Hidraulico (Contacto NA)
+Entradas_CPU_Local;RECUA;Bool;%I0.3;Botao Manual de Recuo do Cilindro Hidraulico (Contacto NA)
+Entradas_CPU_Local;FR1;Bool;%I0.4;Disparo / Auxiliar do Rele Termico do Motor M1 (Contacto NF)
+Entradas_CPU_Local;FR2;Bool;%I0.5;Disparo / Auxiliar do Rele Termico do Motor M2 (Contacto NF)
+Entradas_CPU_Local;FR3;Bool;%I0.6;Disparo / Auxiliar do Rele Termico do Motor M3 (Contacto NF)
+Entradas_CPU_Local;FR4;Bool;%I0.7;Disparo / Auxiliar do Rele Termico do Motor M4 (Contacto NF)
+Entradas_CPU_Local;FR5;Bool;%I1.0;Disparo / Auxiliar do Rele Termico do Motor M5 (Contacto NF)
+Entradas_CPU_Local;FR6;Bool;%I1.1;Disparo / Auxiliar do Rele Termico da Bomba M6 (Contacto NF)
+Entradas_CPU_Local;SEL_AUTO;Bool;%I1.2;Chave Seletora Auto/Manual - Posicao Automatico (Contacto NA)
+Entradas_CPU_Local;SEL_MANUAL;Bool;%I1.3;Chave Seletora Auto/Manual - Posicao Manual (Contacto NA)
+Entradas_CPU_Local;RESERVA_I1_4;Bool;%I1.4;Reserva Tecnica Local CPU
+Entradas_CPU_Local;RESERVA_I1_5;Bool;%I1.5;Reserva Tecnica Local CPU
+Entradas_Expansao1_SM1221;SIN_Y7_COMP;Bool;%I2.0;Diagnostico de Seguranca do Compactador (Rele IFM Y7)
+Entradas_Expansao1_SM1221;NA_S1_COMP;Bool;%I2.1;Interlock / Fim de Curso de Seguranca 1 do Compactador
+Entradas_Expansao1_SM1221;NA_S2_COMP;Bool;%I2.2;Interlock / Fim de Curso de Seguranca 2 do Compactador
+Entradas_Expansao1_SM1221;NA_S3_COMP;Bool;%I2.3;Interlock / Fim de Curso de Seguranca 3 do Compactador
+Entradas_Expansao1_SM1221;SIN_Y7_M1;Bool;%I2.4;Diagnostico de Seguranca do Motor M1 (Rele IFM Y7)
+Entradas_Expansao1_SM1221;NA_STOP_M1;Bool;%I2.5;Botao / Paragem Local de Seguranca do Tapete M1
+Entradas_Expansao1_SM1221;SIN_Y7_M2;Bool;%I2.6;Diagnostico de Seguranca do Motor M2 (Rele IFM Y7)
+Entradas_Expansao1_SM1221;SIN_Y7_M3;Bool;%I2.7;Diagnostico de Seguranca do Motor M3 (Rele IFM Y7)
+Entradas_Expansao1_SM1221;NA_STOP_M2;Bool;%I3.0;Botao / Paragem Local de Seguranca do Tapete M2
+Entradas_Expansao1_SM1221;NA_STOP_M3;Bool;%I3.1;Botao / Paragem Local de Seguranca do Tapete M3
+Entradas_Expansao1_SM1221;SIN_Y7_M4;Bool;%I3.2;Diagnostico de Seguranca do Motor M4 (Rele IFM Y7)
+Entradas_Expansao1_SM1221;NA_STOP_M4;Bool;%I3.3;Botao / Paragem Local de Seguranca do Tapete M4
+Entradas_Expansao1_SM1221;SIN_Y7_M5;Bool;%I3.4;Diagnostico de Seguranca do Motor M5 (Rele IFM Y7)
+Entradas_Expansao1_SM1221;NA_STOP_M5;Bool;%I3.5;Botao / Paragem Local de Seguranca do Tapete M5
+Entradas_Expansao1_SM1221;SENSOR_75_PERCENT;Bool;%I3.6;Sensor Optoeletronico de Nivel da Moega a 75%
+Entradas_Expansao1_SM1221;SENSOR_100_PERCENT;Bool;%I3.7;Sensor Optoeletronico de Nivel da Moega a 100%
+Entradas_Expansao2_SM1221;M1_S4;Bool;%I4.0;Grupo Motor M1 (Tapete 1) - Sensor S4 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M1_S5;Bool;%I4.1;Grupo Motor M1 (Tapete 1) - Sensor S5 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M1_S6;Bool;%I4.2;Grupo Motor M1 (Tapete 1) - Sensor S6 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M2_S7;Bool;%I4.3;Grupo Motor M2 (Tapete 2) - Sensor S7 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M2_S8;Bool;%I4.4;Grupo Motor M2 (Tapete 2) - Sensor S8 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M2_S9;Bool;%I4.5;Grupo Motor M2 (Tapete 2) - Sensor S9 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M3_S10;Bool;%I4.6;Grupo Motor M3 (Tapete 3) - Sensor S10 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M3_S11;Bool;%I4.7;Grupo Motor M3 (Tapete 3) - Sensor S11 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M3_S12;Bool;%I5.0;Grupo Motor M3 (Tapete 3) - Sensor S12 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M4_S13;Bool;%I5.1;Grupo Motor M4 (Tapete 4) - Sensor S13 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M4_S14;Bool;%I5.2;Grupo Motor M4 (Tapete 4) - Sensor S14 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M4_S15;Bool;%I5.3;Grupo Motor M4 (Tapete 4) - Sensor S15 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M5_S16;Bool;%I5.4;Grupo Motor M5 (Tapete 5) - Sensor S16 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M5_S17;Bool;%I5.5;Grupo Motor M5 (Tapete 5) - Sensor S17 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M5_S18;Bool;%I5.6;Grupo Motor M5 (Tapete 5) - Sensor S18 de Posicao / Presenca
+Entradas_Expansao2_SM1221;M5_S19;Bool;%I5.7;Grupo Motor M5 (Tapete 5) - Sensor S19 de Posicao / Presenca
+Entradas_Expansao3_SM1221;S20_COMP;Bool;%I6.0;Sensor de Proximidade Adicional 20 do Compactador
+Entradas_Expansao3_SM1221;S21_COMP;Bool;%I6.1;Sensor de Proximidade Adicional 21 do Compactador
+Entradas_Expansao3_SM1221;RESERVA_I6_2;Bool;%I6.2;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I6_3;Bool;%I6.3;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I6_4;Bool;%I6.4;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I6_5;Bool;%I6.5;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I6_6;Bool;%I6.6;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I6_7;Bool;%I6.7;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_0;Bool;%I7.0;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_1;Bool;%I7.1;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_2;Bool;%I7.2;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_3;Bool;%I7.3;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_4;Bool;%I7.4;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_5;Bool;%I7.5;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_6;Bool;%I7.6;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;RESERVA_I7_7;Bool;%I7.7;Reserva Tecnica Modulo DI 3
+Saidas_CPU_Local;KM1;Bool;%Q0.0;Contactor de Processo do Motor M1 (Tapete 1)
+Saidas_CPU_Local;KM2;Bool;%Q0.1;Contactor de Processo do Motor M2 (Tapete 2)
+Saidas_CPU_Local;KM3;Bool;%Q0.2;Contactor de Processo do Motor M3 (Tapete 3)
+Saidas_CPU_Local;KM4;Bool;%Q0.3;Contactor de Processo do Motor M4 (Tapete 4)
+Saidas_CPU_Local;KM5;Bool;%Q0.4;Contactor de Processo do Motor M5 (Tapete 5)
+Saidas_CPU_Local;START_SS_M6;Bool;%Q0.5;Sinal de Habilitacao / Start da Soft Starter (Bomba M6)
+Saidas_CPU_Local;Y1_AVANCA;Bool;%Q0.6;Eletrovalvula de Avanco do Cilindro Hidraulico
+Saidas_CPU_Local;Y2_RECUA;Bool;%Q0.7;Eletrovalvula de Recuo do Cilindro Hidraulico
+Saidas_CPU_Local;H1_VERDE;Bool;%Q1.0;Sinalizador Luminoso Verde: Linha em Funcionamento / Automatico
+Saidas_CPU_Local;H2_AMARELO;Bool;%Q1.1;Sinalizador Luminoso Amarelo: Estado de Prontidao / Standby
+Saidas_Expansao1_SM1222;H13_AUTO;Bool;%Q2.0;Sinalizador: Modo AUTOMATICO Selecionado
+Saidas_Expansao1_SM1222;H14_MANUAL;Bool;%Q2.1;Sinalizador: Modo MANUAL Selecionado
+Saidas_Expansao1_SM1222;H3_AZUL;Bool;%Q2.3;Sinalizador Azul: Nivel da Moega a 75%
+Saidas_Expansao1_SM1222;H4_VERMELHO;Bool;%Q2.4;Sinalizador Vermelho: Nivel da Moega a 100%
+Saidas_Expansao1_SM1222;H5_VERMELHO;Bool;%Q2.5;Sinalizador Vermelho: Paragem / Avaria Geral da Linha
+Saidas_Expansao1_SM1222;H6_VERMELHO;Bool;%Q2.6;Sinalizador Vermelho: Paragem / Avaria do Compactador
+Saidas_Expansao1_SM1222;H7_VERMELHO;Bool;%Q2.7;Sinalizador Vermelho: Paragem / Avaria do Motor M1
+Saidas_Expansao1_SM1222;H8_VERMELHO;Bool;%Q3.0;Sinalizador Vermelho: Paragem / Avaria do Motor M2
+Saidas_Expansao1_SM1222;H9_VERMELHO;Bool;%Q3.1;Sinalizador Vermelho: Paragem / Avaria do Motor M3
+Saidas_Expansao1_SM1222;H10_VERMELHO;Bool;%Q3.2;Sinalizador Vermelho: Paragem / Avaria do Motor M4
+Saidas_Expansao1_SM1222;H11_VERMELHO;Bool;%Q3.3;Sinalizador Vermelho: Paragem / Avaria do Motor M5
+Saidas_Expansao1_SM1222;H12_VERMELHO;Bool;%Q3.4;Sinalizador Vermelho: Paragem / Avaria da Bomba M6
+Saidas_Expansao1_SM1222;RESERVA_Q2_2;Bool;%Q2.2;Reserva Tecnica Modulo DQ 1
+Saidas_Expansao1_SM1222;RESERVA_Q3_5;Bool;%Q3.5;Reserva Tecnica Modulo DQ 1
+Saidas_Expansao1_SM1222;RESERVA_Q3_6;Bool;%Q3.6;Reserva Tecnica Modulo DQ 1
+Saidas_Expansao1_SM1222;RESERVA_Q3_7;Bool;%Q3.7;Reserva Tecnica Modulo DQ 1
+Marcadores_Internos;OK_SISTEMA;Bool;%M0.0;Permissivo geral do sistema (calculado em FC1)
+Marcadores_Internos;AUT_LINHA_LIGADA;Bool;%M0.1;Selo da linha em modo automatico (FC3)
+Marcadores_Internos;MODO_MANUAL;Bool;%M0.2;Modo manual selecionado (FC2)
+Marcadores_Internos;CICLO_RECUO;Bool;%M0.3;Ciclo de recuo do cilindro hidraulico (FC4)
+Marcadores_Internos;EMERGENCIA;Bool;%M0.4;Paragem de emergencia ativa (FC1)
+Marcadores_Internos;ETAPA_GRAFCET;Word;%MW2;Variavel de etapa atual do GRAFCET (FC5_GRAFCET)
