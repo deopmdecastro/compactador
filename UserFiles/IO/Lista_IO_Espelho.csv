@@ -1,0 +1,34 @@
+Ativo;Tipo;Endereço TIA;Tag TIA;Descrição;Elemento;Tipo elemento;Módulo;Borne esquema;Página esquema;Observações
+Sim;DI;;I_STOP7;STOP7;STOP7;Botão de emergência (NF);CPU 1214C;DIa:0;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_START;START;START;Botão de pressão (NA);CPU 1214C;DIa:1;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_AVANCA;AVANÇA;AVANÇA;Botão de pressão (NA);CPU 1214C;DIa:2;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_RECUA;RECUA;RECUA;Botão de pressão (NA);CPU 1214C;DIa:3;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR1;FR1;FR1;Relé térmico NF;CPU 1214C;DIa:4;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR2;FR2;FR2;Relé térmico NF;CPU 1214C;DIa:5;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR3;FR3;FR3;Relé térmico NF;CPU 1214C;DIa:6;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR4;FR4;FR4;Relé térmico NF;CPU 1214C;DIa:7;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR5;FR5;FR5;Relé térmico NF;CPU 1214C;DIb:0;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_FR6;FR6;FR6;Relé térmico NF;CPU 1214C;DIb:1;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_AUTO_1_MANUAL_2_DIB_2;Auto (1) Manual (2);Auto (1) Manual (2);Chave seletora com chave 3 posições;CPU 1214C;DIb:2;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_AUTO_1_MANUAL_2_DIB_3;Auto (1) Manual (2);Auto (1) Manual (2);Chave seletora com chave 3 posições;CPU 1214C;DIb:3;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DI;;I_STOP_COMP;STOP COMP;STOP COMP;Botão de emergência (NF);CPU 1214C;DIb:4;15 - Esquema Entradas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM1;KM1;KM1;Bobina;CPU 1214C;DQa:0;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM2;KM2;KM2;Bobina;CPU 1214C;DQa:1;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM3;KM3;KM3;Bobina;CPU 1214C;DQa:2;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM4;KM4;KM4;Bobina;CPU 1214C;DQa:3;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM5;KM5;KM5;Bobina;CPU 1214C;DQa:4;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_KM6;KM6;KM6;Bobina;CPU 1214C;DQa:5;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_Y1;Y1;Y1;Bobina;CPU 1214C;DQa:6;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_Y2;Y2;Y2;Bobina;CPU 1214C;DQa:7;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H1;H1;H1;Lâmpada;CPU 1214C;DQb:0;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H2;H2;H2;Lâmpada;CPU 1214C;DQb:1;17 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H3;H3;H3;Lâmpada;SM1222 8DO rele;DQa:3;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H4;H4;H4;Lâmpada;SM1222 8DO rele;DQa:4;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H5;H5;H5;Lâmpada;SM1222 8DO rele;DQa:5;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H6;H6;H6;Lâmpada;SM1222 8DO rele;DQa:6;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H7;H7;H7;Lâmpada;SM1222 8DO rele;DQa:7;18 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H8;H8;H8;Lâmpada;SM1222 8DO rele;DQa:3;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H9;H9;H9;Lâmpada;SM1222 8DO rele;DQa:4;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H10;H10;H10;Lâmpada;SM1222 8DO rele;DQa:5;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H11;H11;H11;Lâmpada;SM1222 8DO rele;DQa:6;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
+Sim;DO;;Q_H12;H12;H12;Lâmpada;SM1222 8DO rele;DQa:7;19 - Esquema Saídas PLC;Endereço TIA a confirmar no TIA Portal.
