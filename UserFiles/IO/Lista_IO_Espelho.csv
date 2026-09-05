@@ -11,7 +11,7 @@ Entradas_CPU_Local;FR5;Bool;%I1.0;Disparo / Auxiliar do Rele Termico do Motor M5
 Entradas_CPU_Local;FR6;Bool;%I1.1;Disparo / Auxiliar do Rele Termico da Bomba M6 (Contacto NF)
 Entradas_CPU_Local;SEL_AUTO;Bool;%I1.2;Chave Seletora Auto/Manual - Posicao Automatico (Contacto NA)
 Entradas_CPU_Local;SEL_MANUAL;Bool;%I1.3;Chave Seletora Auto/Manual - Posicao Manual (Contacto NA)
-Entradas_CPU_Local;RESERVA_I1_4;Bool;%I1.4;Reserva Tecnica Local CPU
+Entradas_CPU_Local;STOP_COMP;Bool;%I1.4;Paragem Local / Botao Cogumelo de Paragem Compactador (Contacto NF)
 Entradas_CPU_Local;RESERVA_I1_5;Bool;%I1.5;Reserva Tecnica Local CPU
 Entradas_Expansao1_SM1221;SIN_Y7_COMP;Bool;%I2.0;Diagnostico de Seguranca do Compactador (Rele IFM Y7)
 Entradas_Expansao1_SM1221;NA_S1_COMP;Bool;%I2.1;Interlock / Fim de Curso de Seguranca 1 do Compactador
@@ -47,7 +47,7 @@ Entradas_Expansao2_SM1221;M5_S18;Bool;%I5.6;Grupo Motor M5 (Tapete 5) - Sensor S
 Entradas_Expansao2_SM1221;M5_S19;Bool;%I5.7;Grupo Motor M5 (Tapete 5) - Sensor S19 de Posicao / Presenca
 Entradas_Expansao3_SM1221;S20_COMP;Bool;%I6.0;Sensor de Proximidade Adicional 20 do Compactador
 Entradas_Expansao3_SM1221;S21_COMP;Bool;%I6.1;Sensor de Proximidade Adicional 21 do Compactador
-Entradas_Expansao3_SM1221;RESERVA_I6_2;Bool;%I6.2;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;STOP6_GERAL;Bool;%I6.2;Paragem Local / Botao Cogumelo de Paragem Geral (Contacto NF)
 Entradas_Expansao3_SM1221;RESERVA_I6_3;Bool;%I6.3;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I6_4;Bool;%I6.4;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I6_5;Bool;%I6.5;Reserva Tecnica Modulo DI 3
@@ -61,6 +61,12 @@ Entradas_Expansao3_SM1221;RESERVA_I7_4;Bool;%I7.4;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I7_5;Bool;%I7.5;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I7_6;Bool;%I7.6;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I7_7;Bool;%I7.7;Reserva Tecnica Modulo DI 3
+Marcadores_Internos;OK_SISTEMA;Bool;%M0.0;Permissivo geral do sistema (calculado em FC1)
+Marcadores_Internos;AUT_LINHA_LIGADA;Bool;%M0.1;Selo da linha em modo automatico (FC3)
+Marcadores_Internos;MODO_MANUAL;Bool;%M0.2;Modo manual selecionado (FC2)
+Marcadores_Internos;CICLO_RECUO;Bool;%M0.3;Ciclo de recuo do cilindro hidraulico (FC4)
+Marcadores_Internos;EMERGENCIA;Bool;%M0.4;Paragem de emergencia ativa (FC1)
+Marcadores_Internos;ETAPA_GRAFCET;Word;%MW2;Variavel de etapa atual do GRAFCET (FC5_GRAFCET)
 Saidas_CPU_Local;KM1;Bool;%Q0.0;Contactor de Processo do Motor M1 (Tapete 1)
 Saidas_CPU_Local;KM2;Bool;%Q0.1;Contactor de Processo do Motor M2 (Tapete 2)
 Saidas_CPU_Local;KM3;Bool;%Q0.2;Contactor de Processo do Motor M3 (Tapete 3)
@@ -73,6 +79,7 @@ Saidas_CPU_Local;H1_VERDE;Bool;%Q1.0;Sinalizador Luminoso Verde: Linha em Funcio
 Saidas_CPU_Local;H2_AMARELO;Bool;%Q1.1;Sinalizador Luminoso Amarelo: Estado de Prontidao / Standby
 Saidas_Expansao1_SM1222;H13_AUTO;Bool;%Q2.0;Sinalizador: Modo AUTOMATICO Selecionado
 Saidas_Expansao1_SM1222;H14_MANUAL;Bool;%Q2.1;Sinalizador: Modo MANUAL Selecionado
+Saidas_Expansao1_SM1222;RESERVA_Q2_2;Bool;%Q2.2;Reserva Tecnica Modulo DQ 1
 Saidas_Expansao1_SM1222;H3_AZUL;Bool;%Q2.3;Sinalizador Azul: Nivel da Moega a 75%
 Saidas_Expansao1_SM1222;H4_VERMELHO;Bool;%Q2.4;Sinalizador Vermelho: Nivel da Moega a 100%
 Saidas_Expansao1_SM1222;H5_VERMELHO;Bool;%Q2.5;Sinalizador Vermelho: Paragem / Avaria Geral da Linha
@@ -83,13 +90,6 @@ Saidas_Expansao1_SM1222;H9_VERMELHO;Bool;%Q3.1;Sinalizador Vermelho: Paragem / A
 Saidas_Expansao1_SM1222;H10_VERMELHO;Bool;%Q3.2;Sinalizador Vermelho: Paragem / Avaria do Motor M4
 Saidas_Expansao1_SM1222;H11_VERMELHO;Bool;%Q3.3;Sinalizador Vermelho: Paragem / Avaria do Motor M5
 Saidas_Expansao1_SM1222;H12_VERMELHO;Bool;%Q3.4;Sinalizador Vermelho: Paragem / Avaria da Bomba M6
-Saidas_Expansao1_SM1222;RESERVA_Q2_2;Bool;%Q2.2;Reserva Tecnica Modulo DQ 1
 Saidas_Expansao1_SM1222;RESERVA_Q3_5;Bool;%Q3.5;Reserva Tecnica Modulo DQ 1
 Saidas_Expansao1_SM1222;RESERVA_Q3_6;Bool;%Q3.6;Reserva Tecnica Modulo DQ 1
 Saidas_Expansao1_SM1222;RESERVA_Q3_7;Bool;%Q3.7;Reserva Tecnica Modulo DQ 1
-Marcadores_Internos;OK_SISTEMA;Bool;%M0.0;Permissivo geral do sistema (calculado em FC1)
-Marcadores_Internos;AUT_LINHA_LIGADA;Bool;%M0.1;Selo da linha em modo automatico (FC3)
-Marcadores_Internos;MODO_MANUAL;Bool;%M0.2;Modo manual selecionado (FC2)
-Marcadores_Internos;CICLO_RECUO;Bool;%M0.3;Ciclo de recuo do cilindro hidraulico (FC4)
-Marcadores_Internos;EMERGENCIA;Bool;%M0.4;Paragem de emergencia ativa (FC1)
-Marcadores_Internos;ETAPA_GRAFCET;Word;%MW2;Variavel de etapa atual do GRAFCET (FC5_GRAFCET)
