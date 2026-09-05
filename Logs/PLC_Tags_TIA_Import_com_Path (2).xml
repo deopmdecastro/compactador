@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="PLC_Tags_TIA_Import_com_Path (2).xml" projectName="C:\Users\Deogracia de Castro\Downloads\PLC_Tags_TIA_Import_com_Path (2).xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Warning" dateTime="3:15:47 PM">
+    <Message>The version ID is missing in the XLSX file. It is assumed that this is the latest version.</Message>
+  </LogEntry>
+</LogFile>
