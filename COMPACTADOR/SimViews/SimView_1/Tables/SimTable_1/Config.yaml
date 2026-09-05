@@ -1,0 +1,9 @@
+Instance: Instance_1
+Columns:
+  Name: Visible
+  Address: Visible
+  DisplayFormat: Visible
+  Monitor: Visible
+  ConsistentModify: Visible
+  Comment: Visible
+...

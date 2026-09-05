@@ -1,3 +1,4 @@
+PlcName: PLC_1
 PlcType: S7_1200
 LicenseType: Standard
 PoweredOn: True

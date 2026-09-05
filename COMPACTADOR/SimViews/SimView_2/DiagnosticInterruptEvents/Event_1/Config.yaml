@@ -1,0 +1,9 @@
+Instance: Instance_1
+LADDR: 32
+IoState: Error, MaintenanceDemanded, MaintenanceRequired
+Channels:
+- Number: 0
+  ErrorType: ShortCircuit
+  Severity: Failure
+  Direction: Incoming
+...
