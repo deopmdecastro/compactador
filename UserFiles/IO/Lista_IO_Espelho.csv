@@ -11,7 +11,7 @@ Entradas_CPU_Local;FR5;Bool;%I1.0;Disparo / Auxiliar do Rele Termico do Motor M5
 Entradas_CPU_Local;FR6;Bool;%I1.1;Disparo / Auxiliar do Rele Termico da Bomba M6 (Contacto NF)
 Entradas_CPU_Local;SEL_AUTO;Bool;%I1.2;Chave Seletora Auto/Manual - Posicao Automatico (Contacto NA)
 Entradas_CPU_Local;SEL_MANUAL;Bool;%I1.3;Chave Seletora Auto/Manual - Posicao Manual (Contacto NA)
-Entradas_CPU_Local;STOP_COMP;Bool;%I1.4;Paragem Local / Botao Cogumelo de Paragem Compactador (Contacto NF)
+Entradas_CPU_Local;RESERVA_I1_4;Bool;%I1.4;Reserva Tecnica Local CPU
 Entradas_CPU_Local;RESERVA_I1_5;Bool;%I1.5;Reserva Tecnica Local CPU
 Entradas_Expansao1_SM1221;SIN_Y7_COMP;Bool;%I2.0;Diagnostico de Seguranca do Compactador (Rele IFM Y7)
 Entradas_Expansao1_SM1221;NA_S1_COMP;Bool;%I2.1;Interlock / Fim de Curso de Seguranca 1 do Compactador
@@ -48,7 +48,7 @@ Entradas_Expansao2_SM1221;M5_S19;Bool;%I5.7;Grupo Motor M5 (Tapete 5) - Sensor S
 Entradas_Expansao3_SM1221;S20_COMP;Bool;%I6.0;Sensor de Proximidade Adicional 20 do Compactador
 Entradas_Expansao3_SM1221;S21_COMP;Bool;%I6.1;Sensor de Proximidade Adicional 21 do Compactador
 Entradas_Expansao3_SM1221;STOP6_GERAL;Bool;%I6.2;Paragem Local / Botao Cogumelo de Paragem Geral (Contacto NF)
-Entradas_Expansao3_SM1221;RESERVA_I6_3;Bool;%I6.3;Reserva Tecnica Modulo DI 3
+Entradas_Expansao3_SM1221;NA_STOP_COMP;Bool;%I6.3;Botao / Paragem Local de Seguranca do Compactador
 Entradas_Expansao3_SM1221;RESERVA_I6_4;Bool;%I6.4;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I6_5;Bool;%I6.5;Reserva Tecnica Modulo DI 3
 Entradas_Expansao3_SM1221;RESERVA_I6_6;Bool;%I6.6;Reserva Tecnica Modulo DI 3
