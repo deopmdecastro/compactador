@@ -1,0 +1,6 @@
+ORGANIZATION_BLOCK "Main"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+BEGIN
+    "DB_LinhaCompactador"();
+END_ORGANIZATION_BLOCK

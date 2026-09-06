@@ -1,0 +1,253 @@
+FUNCTION_BLOCK "FB_LinhaCompactador"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+VAR
+    T_Start_M6 : TON;
+    T_Start_M5 : TON;
+    T_Start_M34 : TON;
+    T_Stop_M12 : TON;
+    T_Stop_M34 : TON;
+    T_Stop_M5 : TON;
+    T_Inatividade : TON;
+END_VAR
+VAR_TEMP
+    AutoOk : Bool;
+    FaultM1 : Bool;
+    FaultM2 : Bool;
+    FaultM3 : Bool;
+    FaultM4 : Bool;
+    FaultM5 : Bool;
+    FaultM6 : Bool;
+    FaultComp : Bool;
+    EmptyM3M4 : Bool;
+    EmptyM5 : Bool;
+    ManualMove : Bool;
+    FrontFreeM1 : Bool;
+    FrontFreeM2 : Bool;
+    FrontFreeM3 : Bool;
+    FrontFreeM4 : Bool;
+    FrontFreeM5 : Bool;
+    ContentorLivre : Bool;
+    LinhaSemMaterial : Bool;
+END_VAR
+BEGIN
+    // FC1 - Seguranca geral
+    "OK_SISTEMA" :=
+        "STOP7" AND
+        "STOP6_GERAL" AND
+        "FR1" AND
+        "FR2" AND
+        "FR3" AND
+        "FR4" AND
+        "FR5" AND
+        "FR6" AND
+        "SIN_Y7_COMP" AND
+        "SIN_Y7_M1" AND
+        "SIN_Y7_M2" AND
+        "SIN_Y7_M3" AND
+        "SIN_Y7_M4" AND
+        "SIN_Y7_M5" AND
+        "NA_STOP_M1" AND
+        "NA_STOP_M2" AND
+        "NA_STOP_M3" AND
+        "NA_STOP_M4" AND
+        "NA_STOP_M5" AND
+        "NA_STOP_COMP";
+
+    "EMERGENCIA" := NOT "OK_SISTEMA";
+
+    // FC2 - Selecao de modo
+    #AutoOk := "SEL_AUTO" AND NOT "SEL_MANUAL" AND "OK_SISTEMA";
+    "MODO_MANUAL" := "SEL_MANUAL" AND NOT "SEL_AUTO" AND "OK_SISTEMA";
+    "H13_AUTO" := "SEL_AUTO" AND NOT "SEL_MANUAL";
+    "H14_MANUAL" := "SEL_MANUAL" AND NOT "SEL_AUTO";
+
+    // Diagnosticos por grupo
+    #FaultM1 := NOT "FR1" OR NOT "NA_STOP_M1" OR NOT "SIN_Y7_M1";
+    #FaultM2 := NOT "FR2" OR NOT "NA_STOP_M2" OR NOT "SIN_Y7_M2";
+    #FaultM3 := NOT "FR3" OR NOT "NA_STOP_M3" OR NOT "SIN_Y7_M3";
+    #FaultM4 := NOT "FR4" OR NOT "NA_STOP_M4" OR NOT "SIN_Y7_M4";
+    #FaultM5 := NOT "FR5" OR NOT "NA_STOP_M5" OR NOT "SIN_Y7_M5";
+    #FaultM6 := NOT "FR6";
+    #FaultComp := NOT "NA_STOP_COMP" OR NOT "SIN_Y7_COMP";
+
+    // FC6 - Nivel da moega
+    "H3_AZUL" := "SENSOR_75_PERCENT";
+    "H4_VERMELHO" := "SENSOR_100_PERCENT";
+
+    #EmptyM3M4 :=
+        NOT "M3_S10" AND NOT "M3_S11" AND NOT "M3_S12" AND
+        NOT "M4_S13" AND NOT "M4_S14" AND NOT "M4_S15";
+
+    #EmptyM5 :=
+        NOT "M5_S16" AND NOT "M5_S17" AND NOT "M5_S18" AND NOT "M5_S19";
+
+    #ManualMove := "MODO_MANUAL" AND (("AVANCA" AND NOT "RECUA") OR ("RECUA" AND NOT "AVANCA"));
+
+    // Anti-acumulacao / anti-queda: o tapete de tras so alimenta se a zona da frente estiver livre.
+    #FrontFreeM1 := NOT "M3_S10" AND NOT "M3_S11" AND NOT "M3_S12";
+    #FrontFreeM2 := NOT "M4_S13" AND NOT "M4_S14" AND NOT "M4_S15";
+    #FrontFreeM3 := NOT "M5_S16" AND NOT "M5_S17";
+    #FrontFreeM4 := NOT "M5_S18" AND NOT "M5_S19";
+    #FrontFreeM5 := NOT "SENSOR_100_PERCENT";
+    #ContentorLivre := NOT "S20_COMP" AND NOT "S21_COMP";
+    #LinhaSemMaterial :=
+        NOT "M1_S4" AND NOT "M1_S5" AND NOT "M1_S6" AND
+        NOT "M2_S7" AND NOT "M2_S8" AND NOT "M2_S9" AND
+        NOT "M3_S10" AND NOT "M3_S11" AND NOT "M3_S12" AND
+        NOT "M4_S13" AND NOT "M4_S14" AND NOT "M4_S15" AND
+        NOT "M5_S16" AND NOT "M5_S17" AND NOT "M5_S18" AND NOT "M5_S19" AND
+        NOT "S20_COMP" AND NOT "S21_COMP" AND
+        NOT "SENSOR_75_PERCENT" AND NOT "SENSOR_100_PERCENT";
+
+    // Timers de arranque/paragem em cascata
+    #T_Start_M6(IN := (#AutoOk AND #ContentorLivre AND ("ETAPA_GRAFCET" = WORD#16#000A)), PT := T#3s);
+    #T_Start_M5(IN := (#AutoOk AND #ContentorLivre AND ("ETAPA_GRAFCET" = WORD#16#0014)), PT := T#2s);
+    #T_Start_M34(IN := (#AutoOk AND #ContentorLivre AND ("ETAPA_GRAFCET" = WORD#16#001E)), PT := T#2s);
+    #T_Stop_M12(IN := ("ETAPA_GRAFCET" = WORD#16#0064), PT := T#2s);
+    #T_Stop_M34(IN := ("ETAPA_GRAFCET" = WORD#16#006E), PT := T#2s);
+    #T_Stop_M5(IN := ("ETAPA_GRAFCET" = WORD#16#0078), PT := T#2s);
+    #T_Inatividade(IN := (#AutoOk AND "AUT_LINHA_LIGADA" AND #LinhaSemMaterial), PT := T#30s);
+    "INATIVIDADE_ATIVA" := #T_Inatividade.Q;
+
+    // Prioridade maxima: emergencia ou modo invalido
+    IF "EMERGENCIA" OR ("SEL_AUTO" AND "SEL_MANUAL") THEN
+        "KM1" := FALSE;
+        "KM2" := FALSE;
+        "KM3" := FALSE;
+        "KM4" := FALSE;
+        "KM5" := FALSE;
+        "START_SS_M6" := FALSE;
+        "Y1_AVANCA" := FALSE;
+        "Y2_RECUA" := FALSE;
+        "AUT_LINHA_LIGADA" := FALSE;
+        "CICLO_RECUO" := FALSE;
+        "ETAPA_GRAFCET" := WORD#16#0000;
+
+    ELSIF "MODO_MANUAL" THEN
+        // FC4 - Manual do compactador, com intertravamento avanca/recuo
+        "AUT_LINHA_LIGADA" := FALSE;
+        "ETAPA_GRAFCET" := WORD#16#0000;
+        "KM1" := FALSE;
+        "KM2" := FALSE;
+        "KM3" := FALSE;
+        "KM4" := FALSE;
+        "KM5" := FALSE;
+        "START_SS_M6" := #ManualMove;
+        "Y1_AVANCA" := "AVANCA" AND NOT "RECUA" AND "OK_SISTEMA";
+        "Y2_RECUA" := "RECUA" AND NOT "AVANCA" AND "OK_SISTEMA";
+
+    ELSIF #AutoOk THEN
+        // FC3 - Automatico com arranque/paragem em cascata
+        IF ("ETAPA_GRAFCET" = WORD#16#0000) AND "START" AND NOT "SENSOR_100_PERCENT" AND #ContentorLivre THEN
+            "ETAPA_GRAFCET" := WORD#16#000A;
+        END_IF;
+
+        IF (("ETAPA_GRAFCET" = WORD#16#0028) AND (NOT "SEL_AUTO" OR "SENSOR_100_PERCENT" OR "INATIVIDADE_ATIVA")) THEN
+            "ETAPA_GRAFCET" := WORD#16#0064;
+        END_IF;
+
+        IF ("ETAPA_GRAFCET" = WORD#16#000A) AND #T_Start_M6.Q THEN
+            "ETAPA_GRAFCET" := WORD#16#0014;
+        ELSIF ("ETAPA_GRAFCET" = WORD#16#0014) AND #T_Start_M5.Q THEN
+            "ETAPA_GRAFCET" := WORD#16#001E;
+        ELSIF ("ETAPA_GRAFCET" = WORD#16#001E) AND #T_Start_M34.Q THEN
+            "ETAPA_GRAFCET" := WORD#16#0028;
+            "AUT_LINHA_LIGADA" := TRUE;
+        ELSIF ("ETAPA_GRAFCET" = WORD#16#0064) AND (#T_Stop_M12.Q OR #EmptyM3M4) THEN
+            "ETAPA_GRAFCET" := WORD#16#006E;
+        ELSIF ("ETAPA_GRAFCET" = WORD#16#006E) AND (#T_Stop_M34.Q OR #EmptyM5) THEN
+            "ETAPA_GRAFCET" := WORD#16#0078;
+        ELSIF ("ETAPA_GRAFCET" = WORD#16#0078) AND #T_Stop_M5.Q THEN
+            "ETAPA_GRAFCET" := WORD#16#0000;
+            "AUT_LINHA_LIGADA" := FALSE;
+        END_IF;
+
+        "START_SS_M6" := ("ETAPA_GRAFCET" <> WORD#16#0000) AND NOT #FaultM6 AND NOT #FaultComp;
+
+        "KM5" :=
+            (("ETAPA_GRAFCET" = WORD#16#0014) OR
+             ("ETAPA_GRAFCET" = WORD#16#001E) OR
+             ("ETAPA_GRAFCET" = WORD#16#0028) OR
+             ("ETAPA_GRAFCET" = WORD#16#0064) OR
+             ("ETAPA_GRAFCET" = WORD#16#006E)) AND
+            #ContentorLivre AND
+            #FrontFreeM5 AND
+            NOT #FaultM5;
+
+        "KM3" :=
+            (("ETAPA_GRAFCET" = WORD#16#001E) OR
+             ("ETAPA_GRAFCET" = WORD#16#0028) OR
+             ("ETAPA_GRAFCET" = WORD#16#0064)) AND
+            #ContentorLivre AND
+            #FrontFreeM3 AND
+            NOT #FaultM3 AND NOT #FaultM5;
+
+        "KM4" :=
+            (("ETAPA_GRAFCET" = WORD#16#001E) OR
+             ("ETAPA_GRAFCET" = WORD#16#0028) OR
+             ("ETAPA_GRAFCET" = WORD#16#0064)) AND
+            #ContentorLivre AND
+            #FrontFreeM4 AND
+            NOT #FaultM4 AND NOT #FaultM5;
+
+        "KM1" :=
+            ("ETAPA_GRAFCET" = WORD#16#0028) AND
+            #ContentorLivre AND
+            NOT "SENSOR_100_PERCENT" AND
+            #FrontFreeM1 AND
+            NOT #FaultM1 AND NOT #FaultM3 AND NOT #FaultM5;
+
+        "KM2" :=
+            ("ETAPA_GRAFCET" = WORD#16#0028) AND
+            #ContentorLivre AND
+            NOT "SENSOR_100_PERCENT" AND
+            #FrontFreeM2 AND
+            NOT #FaultM2 AND NOT #FaultM4 AND NOT #FaultM5;
+
+        // Ciclo basico do compactador. S20/S21 monitoram o contentor e nao sao fins de curso.
+        IF "NA_S2_COMP" THEN
+            "CICLO_RECUO" := TRUE;
+        ELSIF "NA_S1_COMP" THEN
+            "CICLO_RECUO" := FALSE;
+        END_IF;
+
+        "Y1_AVANCA" := "START_SS_M6" AND NOT "CICLO_RECUO" AND NOT "NA_S2_COMP";
+        "Y2_RECUA" := "START_SS_M6" AND "CICLO_RECUO" AND NOT "NA_S1_COMP";
+
+    ELSE
+        // Sem modo valido: saidas desligadas, sistema em standby.
+        "KM1" := FALSE;
+        "KM2" := FALSE;
+        "KM3" := FALSE;
+        "KM4" := FALSE;
+        "KM5" := FALSE;
+        "START_SS_M6" := FALSE;
+        "Y1_AVANCA" := FALSE;
+        "Y2_RECUA" := FALSE;
+        "AUT_LINHA_LIGADA" := FALSE;
+        "ETAPA_GRAFCET" := WORD#16#0000;
+    END_IF;
+
+    // FC7 - Sinalizacao
+    "H1_VERDE" := #AutoOk AND "AUT_LINHA_LIGADA" AND #ContentorLivre;
+    "H2_AMARELO" := "OK_SISTEMA" AND (NOT "AUT_LINHA_LIGADA" OR NOT #ContentorLivre);
+    "H6_VERMELHO" := #FaultComp;
+    "H7_VERMELHO" := #FaultM1;
+    "H8_VERMELHO" := #FaultM2;
+    "H9_VERMELHO" := #FaultM3;
+    "H10_VERMELHO" := #FaultM4;
+    "H11_VERMELHO" := #FaultM5;
+    "H12_VERMELHO" := #FaultM6;
+    "H5_VERMELHO" :=
+        "EMERGENCIA" OR
+        ("SEL_AUTO" AND "SEL_MANUAL") OR
+        #FaultComp OR #FaultM1 OR #FaultM2 OR #FaultM3 OR #FaultM4 OR #FaultM5 OR #FaultM6;
+END_FUNCTION_BLOCK
+
+DATA_BLOCK "DB_LinhaCompactador"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+"FB_LinhaCompactador"
+BEGIN
+END_DATA_BLOCK

@@ -1,0 +1,9 @@
+﻿Atualizacao do espelho a partir das PLC tag tables reais do TIA Portal
+Gerado em: 2026-09-06 16:13:43
+
+Resumo:
+- Antes: 94 tags
+- Depois: 95 tags
+
+Alteracoes:
+- ADICIONADO Logical Address -> Default tag table;Name;Data Type;Comment

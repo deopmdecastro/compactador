@@ -66,6 +66,7 @@ Marcadores_Internos;AUT_LINHA_LIGADA;Bool;%M0.1;Selo da linha em modo automatico
 Marcadores_Internos;MODO_MANUAL;Bool;%M0.2;Modo manual selecionado (FC2)
 Marcadores_Internos;CICLO_RECUO;Bool;%M0.3;Ciclo de recuo do cilindro hidraulico (FC4)
 Marcadores_Internos;EMERGENCIA;Bool;%M0.4;Paragem de emergencia ativa (FC1)
+Marcadores_Internos;INATIVIDADE_ATIVA;Bool;%M0.5;"Timer de inatividade ativo; linha sem material durante 30 s"
 Marcadores_Internos;ETAPA_GRAFCET;Word;%MW2;Variavel de etapa atual do GRAFCET (FC5_GRAFCET)
 Saidas_CPU_Local;KM1;Bool;%Q0.0;Contactor de Processo do Motor M1 (Tapete 1)
 Saidas_CPU_Local;KM2;Bool;%Q0.1;Contactor de Processo do Motor M2 (Tapete 2)
