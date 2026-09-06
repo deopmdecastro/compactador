@@ -29,12 +29,22 @@ Segundo `ProjectInfo.txt`, o projeto requer TIA Portal V21 e foi usado com TIA P
 
 O projeto usa estes blocos principais:
 
-- `Main [OB1]`: chama o bloco de controlo da linha.
+- `Main [OB1]`: bloco de organizacao principal em LAD (Ladder). Contem apenas a chamada ao bloco de controlo da linha.
+- `FC_LinhaCompactador_LAD [FC21]`: visualizacao em LAD da logica principal, incluindo a network do `TON` de inatividade. E chamado diretamente pelo `Main [OB1]`.
 - `FB_LinhaCompactador [FB1]`: contem a logica executavel da linha.
 - `DB_LinhaCompactador [DB1]`: instance DB do `FB_LinhaCompactador`.
-- `FC_LinhaCompactador_LAD [FC21]`: visualizacao em LAD da logica principal, incluindo a network do `TON` de inatividade.
 
-O bloco que manda realmente nas saidas e sequencias e o `FB_LinhaCompactador`.
+O `Main [OB1]` e o ponto de entrada do PLC. Ele chama o `FC_LinhaCompactador_LAD [FC21]`, que representa a logica visual em Ladder da linha de compactador.
+
+## Estrutura do programa
+
+```text
+Main [OB1] (LAD)
+  └── FC_LinhaCompactador_LAD [FC21]
+        └── (logica LAD da linha: GRAFCET, seguranca, sequencias, etc.)
+```
+
+O `Main [OB1]` foi recriado em linguagem LAD (Ladder). A sua Network 1 contem apenas a chamada ao bloco `FC_LinhaCompactador_LAD [FC21]`. Toda a logica executavel reside dentro desse FC, que pode ser monitorizada online com os óculos de monitorizacao (Ctrl + F7).
 
 ## Topologia da linha
 
@@ -365,7 +375,7 @@ Fluxo recomendado apos alterar logica:
 Ultima validacao feita no TIA Portal:
 
 ```text
-Main                    CONSISTENT=True
+Main                    LAD CONSISTENT=True
 FB_LinhaCompactador     CONSISTENT=True
 DB_LinhaCompactador     CONSISTENT=True
 FC_LinhaCompactador_LAD CONSISTENT=True
